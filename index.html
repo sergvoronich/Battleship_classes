@@ -1,0 +1,364 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Lobster&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+    <script src='https://fe.it-academy.by/JQ/jquery.js'></script>
+    <title>Battleship</title>
+</head>
+
+<body>
+    <div id="new-pages-container"></div>
+    <div style="display: none" class="navigation">
+        <a href="#">MAIN MENU</a>
+    </div>
+    <div style="display: none" class="info">
+        <p>ENEMY SHIPS LEFT: <span id="comp-ships-left">10</span></p>
+        <p>MOVES: <span id="moves-count">0</span></p>
+        <p>YOUR SHIPS LEFT: <span id="user-ships-left">10</span></p>
+    </div>
+    <div style="display: none" class="wrapper">
+        <div class="field1">
+            <table>
+                <tr>
+                    <td id="00comp"></td>
+                    <td id="01comp"></td>
+                    <td id="02comp"></td>
+                    <td id="03comp"></td>
+                    <td id="04comp"></td>
+                    <td id="05comp"></td>
+                    <td id="06comp"></td>
+                    <td id="07comp"></td>
+                    <td id="08comp"></td>
+                    <td id="09comp"></td>
+                </tr>
+                <tr>
+                    <td id="10comp"></td>
+                    <td id="11comp"></td>
+                    <td id="12comp"></td>
+                    <td id="13comp"></td>
+                    <td id="14comp"></td>
+                    <td id="15comp"></td>
+                    <td id="16comp"></td>
+                    <td id="17comp"></td>
+                    <td id="18comp"></td>
+                    <td id="19comp"></td>
+                </tr>
+                <tr>
+                    <td id="20comp"></td>
+                    <td id="21comp"></td>
+                    <td id="22comp"></td>
+                    <td id="23comp"></td>
+                    <td id="24comp"></td>
+                    <td id="25comp"></td>
+                    <td id="26comp"></td>
+                    <td id="27comp"></td>
+                    <td id="28comp"></td>
+                    <td id="29comp"></td>
+                </tr>
+                <tr>
+                    <td id="30comp"></td>
+                    <td id="31comp"></td>
+                    <td id="32comp"></td>
+                    <td id="33comp"></td>
+                    <td id="34comp"></td>
+                    <td id="35comp"></td>
+                    <td id="36comp"></td>
+                    <td id="37comp"></td>
+                    <td id="38comp"></td>
+                    <td id="39comp"></td>
+                </tr>
+                <tr>
+                    <td id="40comp"></td>
+                    <td id="41comp"></td>
+                    <td id="42comp"></td>
+                    <td id="43comp"></td>
+                    <td id="44comp"></td>
+                    <td id="45comp"></td>
+                    <td id="46comp"></td>
+                    <td id="47comp"></td>
+                    <td id="48comp"></td>
+                    <td id="49comp"></td>
+                </tr>
+                <tr>
+                    <td id="50comp"></td>
+                    <td id="51comp"></td>
+                    <td id="52comp"></td>
+                    <td id="53comp"></td>
+                    <td id="54comp"></td>
+                    <td id="55comp"></td>
+                    <td id="56comp"></td>
+                    <td id="57comp"></td>
+                    <td id="58comp"></td>
+                    <td id="59comp"></td>
+                </tr>
+                <tr>
+                    <td id="60comp"></td>
+                    <td id="61comp"></td>
+                    <td id="62comp"></td>
+                    <td id="63comp"></td>
+                    <td id="64comp"></td>
+                    <td id="65comp"></td>
+                    <td id="66comp"></td>
+                    <td id="67comp"></td>
+                    <td id="68comp"></td>
+                    <td id="69comp"></td>
+                </tr>
+                <tr>
+                    <td id="70comp"></td>
+                    <td id="71comp"></td>
+                    <td id="72comp"></td>
+                    <td id="73comp"></td>
+                    <td id="74comp"></td>
+                    <td id="75comp"></td>
+                    <td id="76comp"></td>
+                    <td id="77comp"></td>
+                    <td id="78comp"></td>
+                    <td id="79comp"></td>
+                </tr>
+                <tr>
+                    <td id="80comp"></td>
+                    <td id="81comp"></td>
+                    <td id="82comp"></td>
+                    <td id="83comp"></td>
+                    <td id="84comp"></td>
+                    <td id="85comp"></td>
+                    <td id="86comp"></td>
+                    <td id="87comp"></td>
+                    <td id="88comp"></td>
+                    <td id="89comp"></td>
+                </tr>
+                <tr>
+                    <td id="90comp"></td>
+                    <td id="91comp"></td>
+                    <td id="92comp"></td>
+                    <td id="93comp"></td>
+                    <td id="94comp"></td>
+                    <td id="95comp"></td>
+                    <td id="96comp"></td>
+                    <td id="97comp"></td>
+                    <td id="98comp"></td>
+                    <td id="99comp"></td>
+                </tr>
+            </table>
+        </div>
+        <div class="field2">
+            <table>
+                <tr>
+                    <td id="00"></td>
+                    <td id="01"></td>
+                    <td id="02"></td>
+                    <td id="03"></td>
+                    <td id="04"></td>
+                    <td id="05"></td>
+                    <td id="06"></td>
+                    <td id="07"></td>
+                    <td id="08"></td>
+                    <td id="09"></td>
+                </tr>
+                <tr>
+                    <td id="10"></td>
+                    <td id="11"></td>
+                    <td id="12"></td>
+                    <td id="13"></td>
+                    <td id="14"></td>
+                    <td id="15"></td>
+                    <td id="16"></td>
+                    <td id="17"></td>
+                    <td id="18"></td>
+                    <td id="19"></td>
+                </tr>
+                <tr>
+                    <td id="20"></td>
+                    <td id="21"></td>
+                    <td id="22"></td>
+                    <td id="23"></td>
+                    <td id="24"></td>
+                    <td id="25"></td>
+                    <td id="26"></td>
+                    <td id="27"></td>
+                    <td id="28"></td>
+                    <td id="29"></td>
+                </tr>
+                <tr>
+                    <td id="30"></td>
+                    <td id="31"></td>
+                    <td id="32"></td>
+                    <td id="33"></td>
+                    <td id="34"></td>
+                    <td id="35"></td>
+                    <td id="36"></td>
+                    <td id="37"></td>
+                    <td id="38"></td>
+                    <td id="39"></td>
+                </tr>
+                <tr>
+                    <td id="40"></td>
+                    <td id="41"></td>
+                    <td id="42"></td>
+                    <td id="43"></td>
+                    <td id="44"></td>
+                    <td id="45"></td>
+                    <td id="46"></td>
+                    <td id="47"></td>
+                    <td id="48"></td>
+                    <td id="49"></td>
+                </tr>
+                <tr>
+                    <td id="50"></td>
+                    <td id="51"></td>
+                    <td id="52"></td>
+                    <td id="53"></td>
+                    <td id="54"></td>
+                    <td id="55"></td>
+                    <td id="56"></td>
+                    <td id="57"></td>
+                    <td id="58"></td>
+                    <td id="59"></td>
+                </tr>
+                <tr>
+                    <td id="60"></td>
+                    <td id="61"></td>
+                    <td id="62"></td>
+                    <td id="63"></td>
+                    <td id="64"></td>
+                    <td id="65"></td>
+                    <td id="66"></td>
+                    <td id="67"></td>
+                    <td id="68"></td>
+                    <td id="69"></td>
+                </tr>
+                <tr>
+                    <td id="70"></td>
+                    <td id="71"></td>
+                    <td id="72"></td>
+                    <td id="73"></td>
+                    <td id="74"></td>
+                    <td id="75"></td>
+                    <td id="76"></td>
+                    <td id="77"></td>
+                    <td id="78"></td>
+                    <td id="79"></td>
+                </tr>
+                <tr>
+                    <td id="80"></td>
+                    <td id="81"></td>
+                    <td id="82"></td>
+                    <td id="83"></td>
+                    <td id="84"></td>
+                    <td id="85"></td>
+                    <td id="86"></td>
+                    <td id="87"></td>
+                    <td id="88"></td>
+                    <td id="89"></td>
+                </tr>
+                <tr>
+                    <td id="90"></td>
+                    <td id="91"></td>
+                    <td id="92"></td>
+                    <td id="93"></td>
+                    <td id="94"></td>
+                    <td id="95"></td>
+                    <td id="96"></td>
+                    <td id="97"></td>
+                    <td id="98"></td>
+                    <td id="99"></td>
+                </tr>
+            </table>
+        </div>
+        <div class="ships">
+            <button type="button" id="autoFillButton">FILL</button>
+            <button type="button" id="resetButton">RESET</button>
+            <button type="button" id="startButton">START BATTLE</button>
+            <div class="ship ship1">
+                <img src="ships_images/Battleship/ShipBattleshipHull.png" alt="ship1">
+                <table class="ship-table-hor ship1-table active" draggable="true">
+                    <tr>
+                        <td class="part01"></td>
+                        <td class="part02"></td>
+                        <td class="part03"></td>
+                        <td class="part04"></td>
+                    </tr>
+                </table>
+                <table class="ship-table-vert ship1-table inactive" draggable="true">
+                    <tr>
+                        <td class="part01"></td>
+                    </tr>
+                    <tr>
+                        <td class="part02"></td>
+                    </tr>
+                    <tr>
+                        <td class="part03"></td>
+                    </tr>
+                    <tr>
+                        <td class="part04"></td>
+                    </tr>
+                </table>
+                <div class="ship-count count1"></div>
+            </div>
+            <div class="ship ship2">
+                <img src="ships_images/Cruiser/ShipCruiserHull.png" alt="ship2">
+                <table class="ship-table-hor ship2-table active" draggable="true">
+                    <tr>
+                        <td class="part01"></td>
+                        <td class="part02"></td>
+                        <td class="part03"></td>
+                    </tr>
+                </table>
+                <table class="ship-table-vert ship2-table inactive" draggable="true">
+                    <tr>
+                        <td class="part01"></td>
+                    </tr>
+                    <tr>
+                        <td class="part02"></td>
+                    </tr>
+                    <tr>
+                        <td class="part03"></td>
+                    </tr>
+                </table>
+                <div class="ship-count count2"></div>
+            </div>
+            <div class="ship ship3">
+                <img src="ships_images/Destroyer/ShipDestroyerHull.png" alt="ship3">
+                <table class="ship-table-hor ship3-table active" draggable="true">
+                    <tr>
+                        <td class="part01"></td>
+                        <td class="part02"></td>
+                    </tr>
+                </table>
+                <table class="ship-table-vert ship3-table inactive" draggable="true">
+                    <tr>
+                        <td class="part01"></td>
+                    </tr>
+                    <tr>
+                        <td class="part02"></td>
+                    </tr>
+                </table>
+                <div class="ship-count count3"></div>
+            </div>
+            <div class="ship ship4">
+                <img src="ships_images/Plane/PlaneF-35Lightning2.png" alt="ship4">
+                <table class="ship-table-hor ship4-table" draggable="true">
+                    <tr>
+                        <td class="part01"></td>
+                    </tr>
+                </table>
+                <div class="ship-count count4"></div>
+            </div>
+        </div>
+    </div>
+    <script src="model.js"></script>
+    <script src="view.js"></script>
+    <script src="controller.js"></script>
+    <script src="main_script.js"></script>
+    <script src="settings.js"></script>
+    <script src="ajax.js"></script>
+</body>
+
+</html>

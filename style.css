@@ -1,0 +1,469 @@
+body {
+    position  : relative;
+    margin    : 0;
+    padding   : 50px 0 0 50px;
+    min-height: 100vh;
+    overflow  : hidden;
+}
+
+body::before {
+    content            : ' ';
+    display            : block;
+    position           : absolute;
+    left               : 0;
+    top                : 0;
+    width              : 100%;
+    height             : 100%;
+    opacity            : 0.9;
+    background-image   : url("images/background.jpg");
+    background-repeat  : repeat;
+    background-position: 50% 0;
+    background-size    : cover;
+    z-index            : -1;
+}
+
+td {
+    min-width       : 50px;
+    height          : 50px;
+    border          : 1px solid rgb(0, 0, 0, 0.3);
+    background-color: rgba(116, 183, 238, 0.8);
+    text-align      : center;
+    font-family     : Arial, Helvetica, sans-serif;
+    font-weight     : bold;
+}
+
+.wrapper {
+    display   : flex;
+    margin-top: 20px;
+}
+
+.field1 {
+    margin-right: 50px;
+}
+
+.field1 table {
+    position          : relative;
+    /*background-image: url('sea.jpeg');*/
+}
+
+.field2 table {
+    position          : relative;
+    /*background-image: url('sea.jpeg');*/
+}
+
+table {
+    border         : 2px solid black;
+    border-spacing : 0;
+    border-collapse: collapse;
+}
+
+button:hover {
+    cursor: pointer;
+}
+
+.user-shoot:hover {
+    cursor: crosshair;
+}
+
+.ship {
+    margin-bottom: 20px;
+    position     : relative;
+    display      : flex;
+}
+
+.ship-count {
+    margin-left: 20px;
+    align-self : center;
+    font-weight: bold;
+}
+
+.ship1 img {
+    position: absolute;
+    top     : 10px;
+    opacity : 100%;
+    width   : 210px;
+    z-index : -1;
+}
+
+.ship2 img {
+    position: absolute;
+    top     : 12px;
+    opacity : 100%;
+    width   : 160px;
+    z-index : -1;
+}
+
+.ship3 img {
+    position: absolute;
+    top     : 18px;
+    opacity : 100%;
+    width   : 107px;
+    z-index : -1;
+}
+
+.ship4 img {
+    position  : absolute;
+    top       : 12%;
+    opacity   : 100%;
+    width     : 54px;
+    max-height: 100%;
+    z-index   : -1;
+}
+
+
+.rotate {
+    left            : 10px;
+    transform-origin: 10% 50%;
+    transform       : rotate(90deg);
+}
+
+.ships {
+    margin-left : 50px;
+    margin-right: auto;
+    max-width   : 300px;
+    min-width   : 250px;
+}
+
+.ships table {
+    border          : 0;
+    border-color    : none;
+    background-color: rgba(0, 0, 0, 0);
+}
+
+.ships td {
+    opacity: 0%;
+    border : 0;
+}
+
+button {
+    justify-self    : center;
+    margin-right    : 10px;
+    margin-bottom   : 20px;
+    border-radius   : 20px;
+    background-color: rgb(238, 211, 59);
+    font-weight     : bold;
+    border          : 1px solid black;
+    box-shadow      : 1px 1px 0 0;
+    font-family     : Georgia, 'Times New Roman', Times, serif;
+    width           : 100px;
+    height          : 40px;
+    opacity         : 80%;
+    transition      : background-color 0.5s;
+}
+
+button:hover {
+    background-color: rgb(255, 236, 151);
+    transition      : background-color 0.5s;
+}
+
+#startButton {
+    width: 210px;
+}
+
+button:active {
+    box-shadow: none;
+}
+
+
+.inactive {
+    display: none;
+}
+
+.start-battle-notice {
+    position   : absolute;
+    left       : 300px;
+    top        : 300px;
+    font-size  : 80px;
+    font-weight: bold;
+}
+
+.rules {
+    font-size  : 20px;
+    font-family: Lobster;
+    width      : 1500px;
+}
+
+.red-border {
+    box-shadow: 0 0 10px 5px yellow;
+    transition: box-shadow 1s;
+}
+
+.end-game-block {
+    position                                          : absolute;
+    border-radius                                     : 5px;
+    width                                             : 500px;
+    height                                            : 300px;
+    top                                               : -500px;
+    left                                              : 400px;
+    font-weight                                       : bold;
+    text-align                                        : center;
+    border                                            : 8px double black;
+    background-color                                  : coral;
+    z-index                                           : 3;
+    /* Permalink - use to edit and share this gradient: https://colorzilla.com/gradient-editor/#ffb76b+0,ffa73d+50,ff7c00+51,ff7f04+100;Orange+Gloss */
+    background                                        : rgb(255, 183, 107);
+    /* Old browsers */
+    background                                        : -moz-linear-gradient(45deg, rgba(255, 183, 107, 1) 0%, rgba(255, 167, 61, 1) 50%, rgba(255, 124, 0, 1) 51%, rgba(255, 127, 4, 1) 100%);
+    /* FF3.6-15 */
+    background                                        : -webkit-linear-gradient(45deg, rgba(255, 183, 107, 1) 0%, rgba(255, 167, 61, 1) 50%, rgba(255, 124, 0, 1) 51%, rgba(255, 127, 4, 1) 100%);
+    /* Chrome10-25,Safari5.1-6 */
+    background                                        : linear-gradient(45deg, rgba(255, 183, 107, 1) 0%, rgba(255, 167, 61, 1) 50%, rgba(255, 124, 0, 1) 51%, rgba(255, 127, 4, 1) 100%);
+    /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
+    filter                                            : progid:DXImageTransform.Microsoft.gradient(startColorstr='#ffb76b', endColorstr='#ff7f04', GradientType=1);
+    /* IE6-9 fallback on horizontal gradient */
+}
+
+.move-down {
+    transition: transform 500ms;
+    transform : translateY(700px);
+}
+
+.win-or-loose-text {
+    font-size  : 50px;
+    font-weight: bold;
+    margin     : 15px auto;
+}
+
+.congrats {
+    font-size: 25px;
+}
+
+.play-again {
+    display      : block;
+    margin       : 0 auto;
+    margin-top   : 5%;
+    margin-bottom: 20px;
+    width        : 20%;
+    height       : 12%;
+    font-size    : 80%;
+}
+
+.main-menu {
+    display: block;
+    margin : 0 auto;
+    width  : 20%;
+    height : 12%;
+}
+
+.end-game-background {
+    position: absolute;
+    top     : 0;
+    left    : 0;
+    width   : 100%;
+    height  : 100%;
+    z-index : 3;
+}
+
+.rotate-horiz-gun {
+    transform       : rotate(360deg);
+    transition      : transform 2s;
+    transform-origin: 70% 50%;
+}
+
+.rotate-vert-gun {
+    transform       : rotate(360deg);
+    transition      : transform 2s;
+    transform-origin: 50% 70%;
+}
+
+.shoot-horiz-gun {
+    transform : translateX(-10px);
+    transition: transform 1s cubic-bezier(0.1, -0.6, 0.2, 0);
+}
+
+.fire-container {
+    position       : absolute;
+    width          : 25px;
+    height         : 45px;
+    top            : 40px;
+    left           : 40px;
+    background-size: 500px;
+    z-index        : 2;
+}
+
+.explosion-container {
+    position         : absolute;
+    width            : 50px;
+    height           : 50px;
+    top              : 40px;
+    left             : 40px;
+    background-size  : 500px;
+    background-repeat: no-repeat;
+    z-index          : 2;
+}
+
+.navigation {
+    display        : flex;
+    box-sizing     : border-box;
+    width          : 1113px;
+    justify-content: flex-start;
+}
+
+.navigation * {
+    align-self      : center;
+    text-decoration : none;
+    color           : white;
+    font-family     : Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+    font-size       : 20px;
+    border          : 2px solid white;
+    border-radius   : 5px;
+    padding         : 5px;
+    background-color: rgba(255, 255, 255, 0);
+}
+
+.navigation a {
+    text-decoration: none;
+    color          : white;
+    font-family    : Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+    font-size      : 20px;
+    border         : 2px solid white;
+    border-radius  : 5px;
+    padding        : 5px;
+    transition     : border 0.5s, color 0.5s, background-color 0.5s;
+}
+
+.navigation a:hover {
+    border          : 2px solid black;
+    color           : black;
+    background-color: white;
+    transition      : border 0.5s, color 0.5s, background-color 0.5s;
+}
+
+.info {
+    display        : flex;
+    width          : 1113px;
+    color          : white;
+    font-size      : 20px;
+    justify-content: space-between;
+    font-family    : Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+}
+
+.info * {
+    margin     : 20px 0 0 0;
+    align-items: flex-end;
+}
+
+.menu {
+    position                                          : absolute;
+    display                                           : flex;
+    flex-wrap                                         : wrap;
+    top                                               : 35vh;
+    left                                              : 33vw;
+    width                                             : 600px;
+    min-height                                        : 30vh;
+    padding                                           : 20px;
+    /*background-color                                : rgba(167, 183, 185, 0.7);*/
+    border                                            : 8px double;
+    border-radius                                     : 5px;
+    box-shadow                                        : 10px 10px 10px black;
+    z-index                                           : 4;
+    justify-content                                   : space-around;
+    /* Permalink - use to edit and share this gradient: https://colorzilla.com/gradient-editor/#000000+0,000000+100&0.65+0,0+100;Neutral+Density */
+    background                                        : -moz-linear-gradient(45deg, rgba(0, 0, 0, 0.65) 0%, rgba(0, 0, 0, 0) 100%);
+    /* FF3.6-15 */
+    background                                        : -webkit-linear-gradient(45deg, rgba(0, 0, 0, 0.65) 0%, rgba(0, 0, 0, 0) 100%);
+    /* Chrome10-25,Safari5.1-6 */
+    background                                        : linear-gradient(45deg, rgba(0, 0, 0, 0.65) 0%, rgba(0, 0, 0, 0) 100%);
+    /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
+    filter                                            : progid:DXImageTransform.Microsoft.gradient(startColorstr='#a6000000', endColorstr='#00000000', GradientType=1);
+    /* IE6-9 fallback on horizontal gradient */
+}
+
+.menu p {
+    width      : 100%;
+    font-size  : 20px;
+    font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+    color      : white;
+}
+
+.menu span {
+    width      : 100%;
+    font-size  : 15px;
+    font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+    color      : yellowgreen;
+}
+
+
+.menu button {
+    display    : block;
+    min-width  : 200px;
+    max-width  : 200px;
+    height     : 10vh;
+    font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+    font-size  : 3.5vh;
+    margin     : 3.5vh;
+    padding    : 10px;
+    opacity    : 0.9;
+}
+
+.name {
+    position           : absolute;
+    width              : 800px;
+    height             : 200px;
+    z-index            : 5;
+    top                : 5vh;
+    left               : 30%;
+    background-image   : url('images/battleshiptext.png');
+    background-position: 0 -150px;
+    background-size    : 100%;
+    background-repeat  : no-repeat;
+}
+
+.block {
+    min-width    : 50%;
+    margin-bottom: 40px;
+}
+
+.block.level {
+    position: relative;
+}
+
+.block select {
+    min-width       : 150px;
+    font-size       : 15px;
+    font-family     : Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+    background-color: yellowgreen;
+    color           : rebeccapurple;
+}
+
+.content-wrapper {
+    display      : flex;
+    flex-wrap    : wrap;
+    width        : 100%;
+    margin-bottom: 30px;
+    padding-left : 20px;
+}
+
+.menu .back-to-main-menu {
+    width     : 150px;
+    height    : 60px;
+    font-size : 25px;
+    margin-top: 0px;
+}
+
+input {
+    transform: scale(1.3);
+}
+
+select {
+    transform: scale(1.1);
+}
+
+option {
+    font-size: 17px;
+}
+
+.shadow {
+    position        : absolute;
+    top             : 62px;
+    left            : -8px;
+    background-color: rgba(0, 0, 0, 0.35);
+    width           : 165px;
+    height          : 23px;
+    border-radius   : 2px;
+}
+
+
+.input-button {
+    margin: 0 0 0 40px;
+}

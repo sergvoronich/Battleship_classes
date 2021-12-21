@@ -1,0 +1,41 @@
+<style>
+    body::before {
+        opacity: 1;
+        z-index: 3;
+    }
+</style>
+
+<div class="name"></div>
+<div class="menu">
+    <div class="content-wrapper">
+        <div class="block level">
+            <p>LEVEL</p>
+            <select name="select-level" id="level">
+                <option id="level-1" value="easy">Easy</option>
+                <option id="level-2" value="intermediate">Intermediate</option>
+                <option id="level-3" value="hard">Hard</option>
+            </select>
+            <div class="shadow inactive"></div>
+        </div>
+        <div class="block adjacent-area">
+            <p>AREA AROUND SHIP AUTOFILL</p>
+            <input id="area" type="checkbox" checked>
+        </div>
+        <div class="block music">
+            <p>MUSIC</p>
+            <span>ON</span>
+            <input name="music-on-off" type="radio">
+            <span>OFF</span>
+            <input name="music-on-off" type="radio">
+        </div>
+        <div class="block sounds">
+            <p>SOUNDS</p>
+            <span>ON</span>
+            <input name="sounds-on-off" checked type="radio">
+            <span>OFF</span>
+            <input name="sounds-on-off" type="radio">
+        </div>
+    </div>
+
+    <button type="button" class="back-to-main-menu">MAIN MENU</button>
+</div>
