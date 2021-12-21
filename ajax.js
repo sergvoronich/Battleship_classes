@@ -148,7 +148,7 @@ function fillHiScore() {
         let hiscore = JSON.parse(localStorage.getItem("hiscore"));
         const items = document.querySelectorAll('.hiscore-list li');
         for (let i = 0; i < hiscore.length; i++) {
-            items[i].textContent = `${hiscore[i][0]}: ${hiscore[i][1]}`;
+            items[i].textContent = `${hiscore[i][0]}: ${hiscore[i][1]} moves`;
         }
     }
 }

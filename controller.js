@@ -15,7 +15,6 @@ function GameController() {
     let ship3userDisplay = document.querySelector(".ship3-table.active");
     let ship4userDisplay = document.querySelector(".ship4-table");
     let dragPoint = null;
-    let shootAllowed = false;
     let toggle = 2;
     let letUserShoot = true;
 
@@ -123,7 +122,7 @@ function GameController() {
     function readyToBattleCheck() {
         let ready = gameModel.shipsFilledCheck();
         if (ready) {
-            shootAllowed = true;
+            gameModel.shootAllowed = true;
             gameModel.startBattle();
             userShoot();
             resetButton.classList.add("inactive");
@@ -134,11 +133,11 @@ function GameController() {
 
     // функция переключения хода между пользователем и компьютером
     function switchPlayer() {
-        if (toggle == 1 && shootAllowed) {
+        if (toggle == 1 && gameModel.shootAllowed) {
             gameModel.currentField = "field1";
             toggle = 2;
             setTimeout(userShoot, 500);
-        } else if (toggle == 2 && shootAllowed) {
+        } else if (toggle == 2 && gameModel.shootAllowed) {
             gameModel.currentField = "field2";
             toggle = 1;
             setTimeout(compShoot, 500);
@@ -147,7 +146,7 @@ function GameController() {
 
     // функция установки слушателей выстрела пользователя на поле компьютера и первичного анализа выстрела
     function userShoot() {
-        if (shootAllowed) {
+        if (gameModel.shootAllowed) {
             letUserShoot = true;
             enemyfield.addEventListener('click', userShootCapture);
             userfield.classList.remove("red-border");

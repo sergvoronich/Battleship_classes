@@ -7,6 +7,9 @@ function GameModel() {
         gameView = view;
         this.autofill();
         gameView.countUpdate(this.ship1user.quantity, this.ship2user.quantity, this.ship3user.quantity, this.ship4user.quantity);
+        if (sessionStorage.getItem("level")) {
+            this.level = sessionStorage.getItem("level");
+        }
     }
 
     function createField() {
@@ -37,11 +40,12 @@ function GameModel() {
     this.hiScoreEnter = false;
     this.movesCounter = 1;
     this.compShipsLeft = 10;
+    this.userShipsLeft = 10;
+    this.shootAllowed = false;
 
     let woundedShipDetected = false;
     let firstHitCell = [];
     let currentHitCell = [];
-    let userShipsLeft = 10;
 
     sessionStorage.setItem("areaAutoFill", "true");
 
@@ -490,7 +494,7 @@ function GameModel() {
     this.compShootFunc = function () {
         let counter = 0;
 
-        if (woundedShipDetected && this.level == 2) {
+        if (woundedShipDetected && self.level == 2) {
             shootIfWounded();
         } else {
             shoot();
@@ -722,7 +726,7 @@ function GameModel() {
         gameView.music2.play();
         gameView.music2.volume = 0.3;
         gameView.music2.loop = true;
-        shootAllowed = false;
+        self.shootAllowed = false;
         let winOrLoose;
         if (winner == "user") {
             winOrLoose = "You win!"
@@ -775,15 +779,12 @@ function GameModel() {
         if (!hiscore || hiscore.length < 5) {
             self.hiScoreEnter = true;
         } else {
-            for (let i = 1; i < 6; i++) {
+            for (let i = 0; i < 5; i++) {
                 if (self.movesCounter < hiscore[i][1]) {
                     self.hiScoreEnter = true;
                 }
             }
         }
     }
-
-    //checkHiscore();
-    //console.log(this.hiScoreEnter);
 
 }
